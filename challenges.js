@@ -204,7 +204,9 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 // Your solution for 07-reverseUpcaseString here:
 
 
-
+function reverseUpcaseString(string) {
+  return string.split('').reverse('').join('').toUpperCase('');
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -224,8 +226,15 @@ removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
-
-
+function removeEnds(string) {
+  if(string.length < 3){
+    return '';
+  } else {
+    string = string.slice(1)
+    string = string.slice(0, -1)
+    return string;
+  } 
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -247,7 +256,19 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
-
+function charCount(string) {
+  let counts = {};
+  for(let i = 0; i < string.length; i++) {
+    let charCounts = string.charAt(i);
+    
+    if(counts[charCounts]) {
+      counts[charCounts]++
+    } else {
+      counts[charCounts] = 1;
+    }
+  }
+  return counts;
+}
 
 
 
