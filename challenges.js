@@ -142,6 +142,15 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
 
+function computeRemainder(a, b) {
+  if(b === 0) {
+    let c = Infinity
+    return c;
+  } else {
+    let c = a % b
+    return c;
+  }
+}
 
 
 
@@ -165,7 +174,17 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
-
+function range(a, b) {
+  if(a > b){
+    return `First argument must be less than second`
+  } else {
+    let c = [];
+    for (let num = a; num < b; num++) {
+      c.push(num);
+    }
+    return c;
+  }
+}
 
 
 
