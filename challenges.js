@@ -321,7 +321,20 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
-
+function isPalindrome(string) {
+  string = string.toLowerCase().replace(' ', '')
+  let length = string.length
+  if (length < 2) {
+    return true;
+  }
+    for(let i=0; i < length/2; i++) {
+      if (string[i] !== string[length - 1 - i]) {
+        return false;
+      } else {
+        return true;
+      }
+  }
+}
 
 
 
