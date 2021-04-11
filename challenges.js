@@ -360,7 +360,18 @@ hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 
-
+function hammingDistance(a, b) {
+  if(a.length !== b.length) {
+    return NaN
+  }
+  let dist = 0
+  for (let i = 0; i < a.length; i++) {
+    if(a[i] !== b[i]) {
+      dist += 1;
+    }
+  }
+  return dist;
+}
 
 
 
