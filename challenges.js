@@ -537,7 +537,13 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 -----------------------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
 
-
+function mapArray(array, funct) {
+  let newArray = []
+  array.forEach(function(element, index) {
+    newArray.push(funct(element, index))
+  })
+  return newArray
+}
 
 
 /*-----------------------------------------------------------------------------
