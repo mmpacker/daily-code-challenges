@@ -496,8 +496,17 @@ findHighestPriced([
 -----------------------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
 
-
-
+function findHighestPriced(array) {
+  let maxPrice = 0
+  let result = {}
+  array.forEach(function(obj) {
+    if(obj.price > maxPrice) {
+      maxPrice = obj.price
+      result = obj
+    }
+  })
+  return result
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -527,7 +536,6 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-
 
 
 
