@@ -580,8 +580,13 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 -----------------------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
 
-
-
+function reduceArray(arr, funct, accum) {
+  let acc = accum
+  arr.forEach(function(element, index) {
+    acc = funct(acc, element, index) 
+  })
+  return acc
+}
 
 
 /*-----------------------------------------------------------------------------
