@@ -641,8 +641,21 @@ isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
 
-
-
+function isPrime(number) {
+  if(number === 2) {
+    return true
+  } else if(number > 1 && Number.isInteger(number)) {
+    for (let i = 2; i < number; i++) {
+      if (number % i !== 0) {
+        return true
+      } else {
+        return false
+      }
+    }
+  } else {
+    return false
+  }
+}
 
 
 /*-----------------------------------------------------------------------------
