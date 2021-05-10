@@ -770,7 +770,25 @@ balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
 
+let balancedBrackets = (input) => {
+  let brackets = "[]{}()<>"
+  let stack = []
 
+  for(let bracket of input) {
+    let bracketsIndex = brackets.indexOf(bracket)
+    if (bracketsIndex === -1){
+      continue
+    }
+    if(bracketsIndex % 2 === 0) {
+      stack.push(bracketsIndex + 1)
+    } else {
+      if(stack.pop() !== bracketsIndex) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0
+}
 
 
 
@@ -800,7 +818,16 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
 
-
+function isWinningTicket(arrTicket){
+  let winTicket = true;
+  for (let i = 0; i < arrTicket.length; i++) {
+    let checkTicket = String.fromCharCode(arrTicket[i][1]);
+    if (!arrTicket[i][0].includes(checkTicket)) {
+      winTicket = false;
+    }
+  }
+  return winTicket;
+}
 
 
 
@@ -830,7 +857,10 @@ getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
 
-
+function getNumForIP(str) {
+  const a = str.split('.');
+  return ((((((+a[0])*256)+(+a[1]))*256)+(+a[2]))*256)+(+a[3])
+}
 
 
 
