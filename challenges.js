@@ -732,8 +732,20 @@ intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------------------*/
 // Your solution for 22-intersection here:
 
-
-
+const intersection = (arr1, arr2) => {
+  let res = []
+  const { length: len1 } = arr1
+  const { length: len2 } = arr2
+  const smaller = (len1 < len2 ? arr1 : arr2).slice()
+  const bigger = (len1 >= len2 ? arr1 : arr2).slice()
+  for(let i = 0; i < smaller.length; i++){
+     if(bigger.indexOf(smaller[i]) !== -1){
+        res.push(smaller[i])
+        bigger.splice(bigger.indexOf(smaller[i]), 1, undefined)
+     }
+  }
+  return res
+}
 
 
 /*-----------------------------------------------------------------------------
