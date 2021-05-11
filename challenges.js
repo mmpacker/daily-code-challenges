@@ -923,7 +923,14 @@ countTheBits( 65535 ) //=> 16
 -----------------------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
 
-
+function countTheBits(int) {
+  let count = 0
+  while (int > 0) {
+    int &= (int - 1)
+    count++
+  }
+  return count
+}
 
 
 
