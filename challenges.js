@@ -1002,7 +1002,17 @@ addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
 
-
+function addChecker(arr, int) {
+  let result = false
+  for (i = 0; i < arr.length - 1; i++) {
+    for (j = 0; j < arr.length; j++) {
+      if(arr[i] + arr[j] === int) {
+        result = true
+      }
+    }
+  }
+  return result
+}
 
 
 
@@ -1034,4 +1044,14 @@ totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------------------*/
 // Your solution for 30- here:
 
-
+function totalTaskTime(queue, threadCount) {
+  let totalTime = 0, minimum, threads
+  while(queue.length > threadCount) {
+    threads = queue.splice(0, threadCount)
+    minimum = Math.min(...threads)
+    totalTime += minimum
+    threads = threads.map(t => t - minimum).filter(t => t)
+    queue = threads.concat(queue)
+  }
+  return totalTime + (queue.length ? Math.max(...queue) : 0)
+}
