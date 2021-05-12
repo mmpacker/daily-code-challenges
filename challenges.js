@@ -959,8 +959,21 @@ gridTrip( [100, -22], 'L2L15D50U1D9') //=> [83, -80]
 -----------------------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
 
-
-
+function gridTrip(tripArr, moves) {
+  let resultArr = [tripArr[0], tripArr[1]]
+  let directions = { 
+    'U': [1, 1],
+    'D': [1, -1],
+    'L': [0, -1],
+    'R': [0, 1],
+  }
+  moves = moves.match(/[UDLR]\d+/g)
+  moves.forEach(function(move) {
+    let direction = move.charAt(0)
+    resultArr[directions[direction][0]] += move.substr(1) * directions[direction][1]
+  })
+  return resultArr
+}
 
 
 /*-----------------------------------------------------------------------------
